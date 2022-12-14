@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+  app:
+    image: 'datareader-postgres:latest'
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    container_name: datareader
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/datareader
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_DATASOURCE_DB=datareader
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:13.1-alpine'
+    ports:
+      - "5432:5432"
+    container_name: db
+    environment:
+      - POSTGRES_DATABASE_URL=jdbc:postgresql://db:5432/datareader
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=datareader
