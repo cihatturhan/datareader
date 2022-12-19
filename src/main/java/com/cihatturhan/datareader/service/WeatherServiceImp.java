@@ -36,4 +36,9 @@ public class WeatherServiceImp implements WeatherService {
     public void deleteWeather(Long id) {
         weatherRepository.deleteById(id);
     }
+
+    @Override
+    public void addMultipleWeathers(List<Weather> weathers) {
+        weatherRepository.saveAll(weathers);
+    }
 }

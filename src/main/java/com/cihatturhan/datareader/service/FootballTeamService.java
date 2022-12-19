@@ -10,5 +10,5 @@ public interface FootballTeamService {
     FootballTeam createNewFootBallTeam(FootballTeam footballTeam);
     FootballTeam updateFootballTeam(FootballTeam footballTeam);
     void deleteFootballTeam(Long id);
-    void addMultipleFootballTeam(List<FootballTeam> list);
+    void addMultipleFootballTeam(List<FootballTeam> footballTeams);
 }

@@ -3,10 +3,11 @@ package com.cihatturhan.datareader.dataloader;
 import com.cihatturhan.datareader.dataloader.utils.CSVFileReader;
 import com.cihatturhan.datareader.entities.Weather;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class WeatherDataLoaderFromCsv implements WeatherDataLoader {
 
     @Autowired

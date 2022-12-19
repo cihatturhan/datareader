@@ -1,7 +1,9 @@
 package com.cihatturhan.datareader;
 
 import com.cihatturhan.datareader.dataloader.FootballTeamDataLoader;
+import com.cihatturhan.datareader.dataloader.WeatherDataLoader;
 import com.cihatturhan.datareader.service.FootballTeamService;
+import com.cihatturhan.datareader.service.WeatherService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +17,18 @@ public class DatareaderApplication {
 	}
 
 	@Bean
-	CommandLineRunner run(FootballTeamService footballTeamService, FootballTeamDataLoader footballTeamDataLoader) {
+	CommandLineRunner footballTeamDataRun(FootballTeamService footballTeamService, FootballTeamDataLoader footballTeamDataLoader) {
 		return args -> {
 			footballTeamService.addMultipleFootballTeam(footballTeamDataLoader.getAllFootballTeams());
+			//weatherService.addMultipleWeathers(weatherDataLoader.getAllWeathers());
+
+		};
+	}
+	@Bean
+	CommandLineRunner WeatherDataRun(WeatherService weatherService, WeatherDataLoader weatherDataLoader) {
+		return args -> {
+
+			weatherService.addMultipleWeathers(weatherDataLoader.getAllWeathers());
 
 		};
 	}

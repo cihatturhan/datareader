@@ -15,4 +15,6 @@ public interface WeatherService {
 
     void deleteWeather(Long id);
 
+    void addMultipleWeathers(List<Weather> weathers);
+
 }
