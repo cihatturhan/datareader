@@ -19,7 +19,7 @@ public class FootballTeamController {
 
         return new ResponseEntity<>(footballTeamService.getAllFootballTeams(), HttpStatus.OK);
     }
-    @GetMapping({"/id"})
+    @GetMapping("{id}")
     public ResponseEntity<?> getFootballTeamById(@PathVariable Long id){
         return new ResponseEntity<>(footballTeamService.findFootballTeamById(id),HttpStatus.OK);
     }

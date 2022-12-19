@@ -1,11 +1,13 @@
 package com.cihatturhan.datareader.service;
 
 import com.cihatturhan.datareader.entities.FootballTeam;
+import com.cihatturhan.datareader.exception.NotFoundException;
 import com.cihatturhan.datareader.repository.FootballTeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FootballTeamServiceImp implements FootballTeamService {
@@ -19,8 +21,13 @@ public class FootballTeamServiceImp implements FootballTeamService {
     }
 
     @Override
-    public FootballTeam findFootballTeamById(Long id) {
-        return footballTeamRepository.findById(id).orElseThrow(() -> new RuntimeException("FootballTeam not found"));
+    public Optional<FootballTeam> findFootballTeamById(Long id) {
+
+        return Optional.ofNullable(footballTeamRepository.findById(id).orElseThrow(() -> new NotFoundException("FootballTeam Not Found")));
+//        if(findFootballTeamById(id)==null){
+//            throw new NotFoundException("FootballTeam Not Found");
+//        }
+//        return footballTeamRepository.findById(id);
     }
 
     @Override

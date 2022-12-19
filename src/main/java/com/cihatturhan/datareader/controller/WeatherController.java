@@ -19,7 +19,7 @@ public class WeatherController {
     public ResponseEntity<?> getAllWeathers(){
         return new ResponseEntity<>(weatherService.getAllWeathers(), HttpStatus.OK);
     }
-    @GetMapping({"/{id}"})
+    @GetMapping("{id}")
     public ResponseEntity<?> getWeatherById(@PathVariable Long id){
         return new ResponseEntity<>(weatherService.findWeatherById(id), HttpStatus.OK);
     }
