@@ -1,5 +1,6 @@
 package com.cihatturhan.datareader.dataloader.utils;
 
+import com.cihatturhan.datareader.exception.NotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -12,6 +13,7 @@ import java.util.List;
 @Component
 public class CSVFileReader {
     public List<String> csvFileToStringList(String filePath) {
+
         List<String> linesInFile = new ArrayList<>();
 
         try {
@@ -24,10 +26,10 @@ public class CSVFileReader {
             }
 
         } catch (NoSuchFileException noSuchFileException) {
-            System.out.println("csv file can not be found");
+            throw new NotFoundException("CVS File is not exist");
 
         } catch (Exception e) {
-            System.out.println(e);
+            throw new RuntimeException("Unexpected Error Occurred while file is been read");
         }
 
         return linesInFile;

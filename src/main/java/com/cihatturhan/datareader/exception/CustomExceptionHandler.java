@@ -22,4 +22,9 @@ public class CustomExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(notFoundException.getMessage(), 404);
         return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(NoSuchFileException.class)
+    public  ResponseEntity<?> noSuchFile(NoSuchFileException noSuchFileException){
+        ErrorResponse errorResponse= new ErrorResponse(noSuchFileException.getMessage(),403);
+        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
+    }
 }

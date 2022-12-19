@@ -1,6 +1,7 @@
 package com.cihatturhan.datareader.service;
 
 import com.cihatturhan.datareader.entities.Weather;
+import com.cihatturhan.datareader.exception.NotFoundException;
 import com.cihatturhan.datareader.repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class WeatherServiceImp implements WeatherService {
 
     @Override
     public Weather findWeatherById(Long id) {
-        return weatherRepository.findById(id).orElseThrow(() -> new RuntimeException("Weather not found"));
+        return weatherRepository.findById(id).orElseThrow(() -> new NotFoundException("Weather not found"));
     }
 
     @Override

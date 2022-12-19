@@ -21,13 +21,9 @@ public class FootballTeamServiceImp implements FootballTeamService {
     }
 
     @Override
-    public Optional<FootballTeam> findFootballTeamById(Long id) {
+    public FootballTeam findFootballTeamById(Long id) {
 
-        return Optional.ofNullable(footballTeamRepository.findById(id).orElseThrow(() -> new NotFoundException("FootballTeam Not Found")));
-//        if(findFootballTeamById(id)==null){
-//            throw new NotFoundException("FootballTeam Not Found");
-//        }
-//        return footballTeamRepository.findById(id);
+        return footballTeamRepository.findById(id).orElseThrow(() -> new NotFoundException("Football Team Not Found "));
     }
 
     @Override

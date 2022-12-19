@@ -12,25 +12,26 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class DatareaderApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DatareaderApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DatareaderApplication.class, args);
+    }
 
-	@Bean
-	CommandLineRunner footballTeamDataRun(FootballTeamService footballTeamService, FootballTeamDataLoader footballTeamDataLoader) {
-		return args -> {
-			footballTeamService.addMultipleFootballTeam(footballTeamDataLoader.getAllFootballTeams());
-			//weatherService.addMultipleWeathers(weatherDataLoader.getAllWeathers());
+    @Bean
+    CommandLineRunner footballTeamDataRun(FootballTeamService footballTeamService, FootballTeamDataLoader footballTeamDataLoader) {
+        return args -> {
+            footballTeamService.addMultipleFootballTeam(footballTeamDataLoader.getAllFootballTeams());
 
-		};
-	}
-	@Bean
-	CommandLineRunner WeatherDataRun(WeatherService weatherService, WeatherDataLoader weatherDataLoader) {
-		return args -> {
 
-			weatherService.addMultipleWeathers(weatherDataLoader.getAllWeathers());
+        };
+    }
 
-		};
-	}
+    @Bean
+    CommandLineRunner WeatherDataRun(WeatherService weatherService, WeatherDataLoader weatherDataLoader) {
+        return args -> {
+
+            weatherService.addMultipleWeathers(weatherDataLoader.getAllWeathers());
+
+        };
+    }
 
 }
