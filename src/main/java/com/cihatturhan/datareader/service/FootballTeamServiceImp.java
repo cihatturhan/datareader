@@ -3,9 +3,11 @@ package com.cihatturhan.datareader.service;
 import com.cihatturhan.datareader.entities.FootballTeam;
 import com.cihatturhan.datareader.repository.FootballTeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FootballTeamServiceImp implements FootballTeamService {
 
     @Autowired
@@ -35,5 +37,10 @@ public class FootballTeamServiceImp implements FootballTeamService {
     public void deleteFootballTeam(Long id) {
 
         footballTeamRepository.deleteById(id);
+    }
+
+    @Override
+    public void addMultipleFootballTeam(List<FootballTeam> list) {
+        footballTeamRepository.saveAll(list);
     }
 }

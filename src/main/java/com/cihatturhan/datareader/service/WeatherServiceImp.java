@@ -3,9 +3,10 @@ package com.cihatturhan.datareader.service;
 import com.cihatturhan.datareader.entities.Weather;
 import com.cihatturhan.datareader.repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class WeatherServiceImp implements WeatherService {
 
     @Autowired

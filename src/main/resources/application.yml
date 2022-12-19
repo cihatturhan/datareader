@@ -5,12 +5,12 @@ spring:
     name: datareader
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db:5432/datareader
+    url: jdbc:postgresql://localhost:5432/datareader
     username: postgres
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: false
     properties:
       hibernate:

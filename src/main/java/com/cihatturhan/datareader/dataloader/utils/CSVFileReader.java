@@ -1,5 +1,7 @@
 package com.cihatturhan.datareader.dataloader.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -7,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CSVFileReader {
     public List<String> csvFileToStringList(String filePath) {
         List<String> linesInFile = new ArrayList<>();
