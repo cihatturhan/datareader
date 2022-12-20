@@ -35,6 +35,8 @@ public class WeatherServiceImp implements WeatherService {
 
     @Override
     public void deleteWeather(Long id) {
+
+        weatherRepository.findById(id).orElseThrow(()-> new NotFoundException("Weather Not Found"));
         weatherRepository.deleteById(id);
     }
 

@@ -39,6 +39,8 @@ public class FootballTeamServiceImp implements FootballTeamService {
     @Override
     public void deleteFootballTeam(Long id) {
 
+        footballTeamRepository.findById(id).orElseThrow(() -> new NotFoundException("FootballTeam Not Found"));
+
         footballTeamRepository.deleteById(id);
     }
 
