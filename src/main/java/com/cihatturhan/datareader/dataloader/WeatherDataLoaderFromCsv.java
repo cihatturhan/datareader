@@ -10,13 +10,11 @@ import java.util.List;
 @Component
 public class WeatherDataLoaderFromCsv implements WeatherDataLoader {
 
-    @Autowired
-    private CSVFileReader csvFileReader;
-    static final String filePath = "src/main/resources/weather.csv";
+
 
     // read Datas from csv file and return Weather List
     @Override
-    public List<Weather> getAllWeathers() {
+    public List<Weather> getAllWeathers( String filePath, CSVFileReader csvFileReader) {
         List<Weather> weathers = new ArrayList<>();
         List<String> weathersInLines = csvFileReader.csvFileToStringList(filePath);
 

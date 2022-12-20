@@ -7,26 +7,26 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
-public class FootballTeamsDataLoaderFromCsv implements FootballTeamDataLoader{
 
-    @Autowired
-    private CSVFileReader csvFileReader;
-    static final String filePath= "src/main/resources/football.csv";
+@Component
+public class FootballTeamsDataLoaderFromCsv implements FootballTeamDataLoader {
+
+
 
     // read Datas from csv file and return FootballTeam List
     @Override
-    public List<FootballTeam> getAllFootballTeams() {
+    public List<FootballTeam> getAllFootballTeams(String filePath, CSVFileReader csvFileReader) {
 
-        List<String> footballTeamsInLines=csvFileReader.csvFileToStringList(filePath);
+        List<String> footballTeamsInLines = csvFileReader.csvFileToStringList(filePath);
         List<FootballTeam> footballTeams = new ArrayList<>();
 
-        footballTeamsInLines.stream().forEach((line)->{
-                   if(convertLineToFootballTeam(line)!=null)
-                       footballTeams.add(convertLineToFootballTeam(line));
+        footballTeamsInLines.stream().forEach((line) -> {
+            if (convertLineToFootballTeam(line) != null)
+                footballTeams.add(convertLineToFootballTeam(line));
         });
         return footballTeams;
     }
+
     private FootballTeam convertLineToFootballTeam(String str) {
         FootballTeam footballTeam = new FootballTeam();
         try {
