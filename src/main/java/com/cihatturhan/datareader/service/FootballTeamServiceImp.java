@@ -3,12 +3,13 @@ package com.cihatturhan.datareader.service;
 import com.cihatturhan.datareader.entities.FootballTeam;
 import com.cihatturhan.datareader.exception.NotFoundException;
 import com.cihatturhan.datareader.repository.FootballTeamRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@AllArgsConstructor
 @Service
 public class FootballTeamServiceImp implements FootballTeamService {
 
