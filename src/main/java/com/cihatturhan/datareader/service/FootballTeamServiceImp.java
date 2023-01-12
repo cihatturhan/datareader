@@ -34,6 +34,9 @@ public class FootballTeamServiceImp implements FootballTeamService {
 
     @Override
     public FootballTeam updateFootballTeam(FootballTeam footballTeam) {
+        footballTeamRepository.findById(footballTeam.getId())
+                .orElseThrow(()->new NotFoundException("FootballTeam Not Found"));
+
         return footballTeamRepository.save(footballTeam);
     }
 
